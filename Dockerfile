@@ -46,7 +46,7 @@ RUN sudo mv services/coredns.service /etc/systemd/system/
 RUN sudo systemctl daemon-reload
 RUN sudo chmod +x services/start.sh  
 
-EXPOSE 8443 51820/udp
+EXPOSE 8965 51820/udp
 CMD ["sudo", "./services/start.sh"]
 
 USER docker

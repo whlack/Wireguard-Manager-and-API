@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/spf13/viper"
+	"fmt"
 )
 
 func LoadConfig() {
@@ -18,6 +19,7 @@ func LoadConfig() {
 
 	err := viper.ReadInConfig() // Find and read the config file
 	if err != nil {             // Handle errors reading the config file
+		fmt.Println(err)
 		panic("Cannot read env file!")
 	}
 }

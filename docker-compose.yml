@@ -2,13 +2,14 @@ version: "3"
 
 services:
     wireguard-manager-and-api:
-      image:  registry.gitlab.com/mawthuq-software/wireguard-manager-and-api:main
+      #image:  registry.gitlab.com/mawthuq-software/wireguard-manager-and-api:main
+      image: wireguard-manager-and-api:latest
       volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /opt/wgManagerAPI:/opt/wgManagerAPI
       - /lib/modules:/lib/modules
       ports:
-      - "8443:8443"
+      - "8965:8965"
       - "51820:51820/udp"
       cap_add:
         - NET_ADMIN
@@ -16,3 +17,5 @@ services:
       sysctls:
         - net.ipv4.conf.all.src_valid_mark=1
         - net.ipv6.conf.all.disable_ipv6=0
+      restart: always
+      privileged: true

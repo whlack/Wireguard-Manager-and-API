@@ -104,7 +104,7 @@ func generateIPs() {
 					octet++
 				}
 				ipv4 := ipv4Query + strconv.Itoa(octet) + "." + strconv.Itoa(pointer)
-				currentIP := IP{IPv4Address: ipv4, IPv6Address: gorm.Expr("NULL"), InUse: "false", WGInterface: "wg0"}
+				currentIP := IP{IPv4Address: ipv4, IPv6Address: "-", InUse: "false", WGInterface: "wg0"}
 				db.Create(currentIP)
 				pointer++
 			}
